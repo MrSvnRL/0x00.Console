@@ -1,0 +1,63 @@
+# Project: Project1
+# Makefile created by Dev-C++ 5.8.0
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+RES      = ShugoConsole_private.res
+OBJ      = aionprocessworker.o crycvar.o main.o memorypattern.o processlistmodel.o processutils.o remotememorylookup.o shugoconsolewidget.o variableeditor.o win64utils.o wintaskscheduler.o $(RES)
+LINKOBJ  = aionprocessworker.o crycvar.o main.o memorypattern.o processlistmodel.o processutils.o remotememorylookup.o shugoconsolewidget.o variableeditor.o win64utils.o wintaskscheduler.o $(RES)
+LIBS     = -L"C:/0xPrograms/Dev-Cpp/MinGW64/lib" -L"C:/0xPrograms/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc -mwindows
+INCS     = -I"C:/0xPrograms/Dev-Cpp/MinGW64/include" -I"C:/0xPrograms/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/0xPrograms/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.8.1/include"
+CXXINCS  = -I"C:/0xPrograms/Dev-Cpp/MinGW64/include" -I"C:/0xPrograms/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/0xPrograms/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.8.1/include" -I"C:/0xPrograms/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.8.1/include/c++"
+BIN      = ShugoConsole.exe
+CXXFLAGS = $(CXXINCS) 
+CFLAGS   = $(INCS) 
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+aionprocessworker.o: aionprocessworker.cpp
+	$(CPP) -c aionprocessworker.cpp -o aionprocessworker.o $(CXXFLAGS)
+
+crycvar.o: crycvar.cpp
+	$(CPP) -c crycvar.cpp -o crycvar.o $(CXXFLAGS)
+
+main.o: main.cpp
+	$(CPP) -c main.cpp -o main.o $(CXXFLAGS)
+
+memorypattern.o: memorypattern.cpp
+	$(CPP) -c memorypattern.cpp -o memorypattern.o $(CXXFLAGS)
+
+processlistmodel.o: processlistmodel.cpp
+	$(CPP) -c processlistmodel.cpp -o processlistmodel.o $(CXXFLAGS)
+
+processutils.o: processutils.cpp
+	$(CPP) -c processutils.cpp -o processutils.o $(CXXFLAGS)
+
+remotememorylookup.o: remotememorylookup.cpp
+	$(CPP) -c remotememorylookup.cpp -o remotememorylookup.o $(CXXFLAGS)
+
+shugoconsolewidget.o: shugoconsolewidget.cpp
+	$(CPP) -c shugoconsolewidget.cpp -o shugoconsolewidget.o $(CXXFLAGS)
+
+variableeditor.o: variableeditor.cpp
+	$(CPP) -c variableeditor.cpp -o variableeditor.o $(CXXFLAGS)
+
+win64utils.o: win64utils.cpp
+	$(CPP) -c win64utils.cpp -o win64utils.o $(CXXFLAGS)
+
+wintaskscheduler.o: wintaskscheduler.cpp
+	$(CPP) -c wintaskscheduler.cpp -o wintaskscheduler.o $(CXXFLAGS)
+
+ShugoConsole_private.res: ShugoConsole_private.rc ShugoConsole.rc
+	$(WINDRES) -i ShugoConsole_private.rc --input-format=rc -o ShugoConsole_private.res -O coff 
+
